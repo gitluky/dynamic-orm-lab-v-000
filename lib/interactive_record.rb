@@ -69,7 +69,7 @@ class InteractiveRecord
     search_by = ''
     search_for = ''
     hash.each do |key, value|
-      search_by, search_for = key, value
+      search_by, search_for = key.to_s, value.to_s
     end
     binding.pry
     sql = <<-SQL
