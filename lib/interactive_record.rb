@@ -12,13 +12,13 @@ class InteractiveRecord
     sql = <<-SQL
       SELECT PRAGMA table_info (#{self.table_name})
     SQL
-    
+
     table_columns = []
-    
+
     DB[:conn].execute(sql).each do |column|
       table_columns << column["name"]
     end
-    
+
   end
 
   def initialize(options={})
