@@ -38,7 +38,6 @@ class InteractiveRecord
   end
 
   def values_for_insert
-    binding.pry
     self.class.column_names.collect do |column_name|
       "#{self.send(column_name)}"
     end.reject {|value| value.empty?}.join(", ")
