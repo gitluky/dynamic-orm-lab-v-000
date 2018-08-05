@@ -67,14 +67,14 @@ class InteractiveRecord
 
   def self.find_by_name(hash)
     hash.each do |key, value|
-      attribute, search_for = key, value
+      search_by, search_for = key, value
     end
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
       WHERE ? = ?
     SQL
 
-    DB[:conn].execute(sql, attribute, searcy_for)
+    DB[:conn].execute(sql, search_by, search_for)
 
   end
 
