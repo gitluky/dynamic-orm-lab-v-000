@@ -39,11 +39,10 @@ class InteractiveRecord
 
   def values_for_insert
     binding.pry
-    values = []
-    self.class.column_names.each do |column_name|
-      values << "#{self.send(column_name)}" unless send("#{column_name}").nil?
-    end
-    values.join(",")
+    self.class.column_names.map do |column_name|
+      "#{self.send(column_name)}" unless send("#{column_name}").nil?
+    end.join(", ")
+
   end
 
   def save
