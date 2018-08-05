@@ -70,7 +70,7 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name}
       WHERE #{hash.keys[0].to_s} = ?
     SQL
-    binding.pry
+
     DB[:conn].execute(sql, hash[hash.keys[0]])
 
   end
