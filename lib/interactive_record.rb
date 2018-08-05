@@ -69,6 +69,7 @@ class InteractiveRecord
     hash.each do |key, value|
       search_by, search_for = key, value
     end
+    binding.pry
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
       WHERE ? = ?
