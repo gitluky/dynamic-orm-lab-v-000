@@ -28,7 +28,26 @@ class InteractiveRecord
   end
 
   def col_names_for_insert
-    self.class.column_names.delete_if {|column| column = "id"}.join(',') 
+    self.class.column_names.delete_if {|column| column = "id"}.join(',')
   end
+
+  def values_for_insert
+    values = []
+    col_names_for_insert.each do |column_name|
+      values << self.send("'#{column_name}'")
+    end
+    values.join(",")
+  end
+
+  def save
+    sql = <<-SQL
+      INSERT INTO (col_names_for_insert)
+      VALUES (values_for_insert)
+
+    SQL
+
+
+  end
+
 
 end
