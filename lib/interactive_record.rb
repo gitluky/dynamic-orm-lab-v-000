@@ -38,9 +38,10 @@ class InteractiveRecord
   end
 
   def values_for_insert
-    self.class.column_names.collect do |column_name|
-      "'#{self.send(column_name)}'"
-    end.reject {|value| value == ''}.join(", ")
+    values = []
+    self.class.column_names.each do |column_name|
+      values << "'#{self.send(column_name)}'" unless self.send("#{column_name}").nil?
+    end.join(", ")
   end
 
   def save
