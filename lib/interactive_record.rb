@@ -65,8 +65,8 @@ class InteractiveRecord
 
   end
 
-  def self.find_by_name(hash)
-    hash.each do |key, value|
+  def self.find_by_name(options={})
+    options.each do |key, value|
       search_by, search_for = key, value
     end
     sql = <<-SQL
