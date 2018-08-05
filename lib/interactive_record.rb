@@ -66,18 +66,13 @@ class InteractiveRecord
   end
 
   def self.find_by(hash)
-    search_by = ''
-    search_for = ''
-    hash.each do |key, value|
-      search_by, search_for = key.to_s, value.to_s
-    end
     binding.pry
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
       WHERE ? = ?
     SQL
 
-    DB[:conn].execute(sql, search_by, search_for)
+    DB[:conn].execute(sql, hash.key, hash.value)
 
   end
 
