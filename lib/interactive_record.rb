@@ -41,7 +41,7 @@ class InteractiveRecord
     binding.pry
     self.class.column_names.collect do |column_name|
       "#{self.send(column_name)}"
-    end.reject {|value| value.nil?}.join(", ")
+    end.reject {|value| value.empty?}.join(", ")
   end
 
   def save
