@@ -71,7 +71,7 @@ class InteractiveRecord
       WHERE ? = ?
     SQL
     binding.pry
-    DB[:conn].execute(sql, hash.keys[0].to_s, hash[hash.keys[0]])
+    DB[:conn].execute(sql, hash.keys[0], hash[hash.keys[0]])
 
   end
 
