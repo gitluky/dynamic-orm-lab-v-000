@@ -12,7 +12,7 @@ class InteractiveRecord
   def self.column_names
 
     sql = <<-SQL
-      "PRAGMA table_info('#{self.table_name}')"
+      PRAGMA table_info("#{self.table_name}")
     SQL
 
     table_columns = []
