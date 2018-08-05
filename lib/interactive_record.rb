@@ -19,6 +19,8 @@ class InteractiveRecord
       table_columns << column["name"]
     end
 
+    table_columns
+
   end
 
   def initialize(options={})
