@@ -43,6 +43,7 @@ class InteractiveRecord
       values << self.send("'#{column_name}'") unless send("#{column_name}").nil?
     end
     values.join(",")
+    binding.pry
   end
 
   def save
