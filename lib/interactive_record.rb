@@ -10,7 +10,7 @@ class InteractiveRecord
 
 
   def self.column_names
-    binding.pry
+
     sql = <<-SQL
       "PRAGMA table_info('#{self.table_name}')"
     SQL
