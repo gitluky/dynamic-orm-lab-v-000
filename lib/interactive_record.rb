@@ -40,8 +40,8 @@ class InteractiveRecord
   def values_for_insert
     binding.pry
     self.class.column_names.collect do |column_name|
-      "#{self.send(column_name)}" unless send("#{column_name}").nil?
-    end.join(", ")
+      "#{self.send(column_name)}"
+    end.compact.join(", ")
 
   end
 
