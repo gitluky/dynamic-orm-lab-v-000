@@ -18,9 +18,7 @@ class InteractiveRecord
     DB[:conn].execute(sql).each do |column|
       table_columns << column["name"]
     end
-
     table_columns
-
   end
 
   def initialize(options={})
