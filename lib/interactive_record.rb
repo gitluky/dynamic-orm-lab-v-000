@@ -65,7 +65,7 @@ class InteractiveRecord
 
   end
 
-  def self.find_by_name(options={})
+  def self.find_by(options={})
     options.each do |key, value|
       search_by, search_for = key, value
     end
