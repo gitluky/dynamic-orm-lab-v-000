@@ -40,7 +40,7 @@ class InteractiveRecord
   def values_for_insert
     self.class.column_names.collect do |column_name|
       "'#{self.send(column_name)}'"
-    end.reject {|value| value.empty?}.join(", ")
+    end.reject {|value| value == ''}.join(", ")
   end
 
   def save
