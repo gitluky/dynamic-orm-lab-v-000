@@ -38,7 +38,7 @@ class InteractiveRecord
   end
 
   def values_for_insert
-    self.class.column_names.select do |column_name|
+    self.class.column_names.collect do |column_name|
       "#{self.send(column_name)}" unless self.send("#{column_name}").nil?
     end.join(", ")
   end
