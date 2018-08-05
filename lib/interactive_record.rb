@@ -1,5 +1,6 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
+require 'pry'
 
 class InteractiveRecord
 
@@ -9,6 +10,7 @@ class InteractiveRecord
 
 
   def self.column_names
+    binding.pry
     sql = <<-SQL
       SELECT PRAGMA table_info("#{self.table_name}")
     SQL
